@@ -404,7 +404,7 @@ public class Jenkins extends AbstractCIBase implements DirectlyModifiableTopLeve
     /**
      * Message displayed in the top page.
      */
-    private String systemMessage;
+    private SystemMessage systemMessage;
 
     private MarkupFormatter markupFormatter;
 
@@ -951,7 +951,7 @@ public class Jenkins extends AbstractCIBase implements DirectlyModifiableTopLeve
 
     @Exported
     public String getDescription() {
-        return systemMessage;
+        return getSystemMessage().toString();
     }
 
     public PluginManager getPluginManager() {
@@ -1256,7 +1256,7 @@ public class Jenkins extends AbstractCIBase implements DirectlyModifiableTopLeve
     /**
      * Synonym for {@link #getDescription}.
      */
-    public String getSystemMessage() {
+    public SystemMessage getSystemMessage() {
         return systemMessage;
     }
 
@@ -1284,7 +1284,7 @@ public class Jenkins extends AbstractCIBase implements DirectlyModifiableTopLeve
     /**
      * Sets the system message.
      */
-    public void setSystemMessage(String message) throws IOException {
+    public void setSystemMessage(SystemMessage message) throws IOException {
         this.systemMessage = message;
         save();
     }
